@@ -87,7 +87,7 @@
                         <p>Subtotal</p>
                     </div>
                     <div class="right">
-                        <p>$500</p>
+                        <p id="totalPrice">$000</p>
                     </div>
                 </div>
 
@@ -96,7 +96,7 @@
                         <p>Charge 10% VAT</p>
                     </div>
                     <div class="right">
-                        <p>$50</p>
+                        <p id="vat">$00</p>
                     </div>
                 </div>
                 <hr>
@@ -105,7 +105,7 @@
                         <h4>Total</h4>
                     </div>
                     <div class="right">
-                        <p>$550</p>
+                        <p id="grandTotal">$000</p>
                     </div>
                 </div>
             </div>
@@ -135,11 +135,37 @@
                 caseNewCount = caseCount - 1;
             }
             caseInput.value = caseNewCount;
+            calculateTotal()
         }
 
+        function calculateTotal(){
+            const firstTicketInput = document.getElementById("number-count-firstPart")
+            const firstTicketCount = parseInt(firstTicketInput.value);
+
+            const secendTicketInput = document.getElementById("number-count-secendPart");
+            const secendTicketCount = parseInt(secendTicketInput.value);
+   
+
+            const totalPrice = firstTicketCount * 150 + secendTicketCount * 100;
+            document.getElementById("totalPrice").innerText = '$' + totalPrice;
+
+            const tax = totalPrice * 0.1;
+            document.getElementById("vat").innerText = '$' + tax;
+
+            const grandTotal = totalPrice + tax;
+            document.getElementById("grandTotal").innerText = '$' + grandTotal;
+        }
+
+        // function getInputValueFor(id){
+        //  const ticketInput = document.getElementById("number-count-" + id)
+        //   const ticketCount = parseInt(ticketInput.value);
+        //     return ticketCount;
+        // }
 
 
 
+// const secendTicketInput = document.getElementById("number-count-secendPart");
+            // const secendTicketCount = parseInt(secendTicketInput.value);
 
 
 
