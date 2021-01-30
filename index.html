@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bus Ticket</title>
-    
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@400;500;700&display=swap"
@@ -32,7 +32,9 @@
 
         <div class="booking-content">
             <h1>Mega City Bus</h1>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+                industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
+                scrambled it to make a type specimen book.</p>
         </div>
 
 
@@ -42,18 +44,18 @@
             <div class="inputs">
                 <div class="input-group">
                     <label" for="">From</label>
-                    <input class="inp-style" type="text" name="" placeholder="Dhaka">
+                        <input class="inp-style" type="text" name="" placeholder="Dhaka">
                 </div>
                 <div class="input-group">
                     <label" for="">From</label>
-                    <input class="inp-style" type="text" name="" placeholder="Chittagone">
+                        <input class="inp-style" type="text" name="" placeholder="Chittagone">
                 </div>
             </div>
 
             <div class="inputs">
                 <div class="input-group">
                     <label" for="">Departure</label>
-                    <input class="inp-style" type="date" name="">
+                        <input class="inp-style" type="date" name="">
                 </div>
                 <div class="input-group">
                     <label for="">Return</label>
@@ -62,21 +64,23 @@
             </div>
             <div class="inputs">
                 <div class="input-group f-class">
-                <div>
-                    <label for="" id="first-ticket-price">First Class ($150)</label>
-                    <input id="number-count-firstPart" class="inp-style inp-width" type="number" name="" value="0">
+                    <div>
+                        <label for="" id="first-ticket-price">First Class ($150)</label>
+                        <input id="number-count-firstPart" class="inp-style inp-width" type="number" name="" value="0">
+                    </div>
+                    <div class="plus-minus-btn">
+                        <p><span onclick="forPlusMinus(true, '-firstPart')">+</span> <span
+                                onclick=" forPlusMinus(false, '-firstPart')">-</span></p>
+                    </div>
                 </div>
-                <div class="plus-minus-btn">
-                    <p><span onclick="forPlusMinus(true, '-firstPart')">+</span> <span onclick=" forPlusMinus(false, '-firstPart')">-</span></p>
-                </div>
-            </div>
                 <div class="input-group f-class">
                     <div>
                         <label for="" id="secend-ticket-price">Economy ($100)</label>
                         <input id="number-count-secendPart" class="inp-style inp-width" type="number" name="" value="0">
                     </div>
                     <div class="plus-minus-btn">
-                        <p> <span onclick="forPlusMinus(true, '-secendPart' )">+</span> <span onclick=" forPlusMinus(false, '-secendPart')" >-</span> </p>  
+                        <p> <span onclick="forPlusMinus(true, '-secendPart' )">+</span> <span
+                                onclick=" forPlusMinus(false, '-secendPart')">-</span> </p>
                     </div>
                 </div>
 
@@ -115,36 +119,37 @@
 
     <!--Thank You-->
     <script>
-        
 
 
 
-        // secend ticket
-        
+
+
+
 
         // function section
-        function forPlusMinus(isIncress, part){
-            const caseInput = document.getElementById("number-count" + part );
-            const caseCount = parseInt(caseInput.value);
+        function forPlusMinus(isIncress, part) {
+            const ticketInput = document.getElementById("number-count" + part);
+            const ticketCount = parseInt(ticketInput.value);
             // const newCount = caseCount - 1;
-            let caseNewCount = caseCount;
-            if(isIncress == true){
-                caseNewCount = caseCount + 1;
+            let ticketNewCount = ticketCount;
+            if (isIncress == true) {
+                ticketNewCount = ticketCount + 1;
             }
-            if(isIncress == false && caseCount > 0){
-                caseNewCount = caseCount - 1;
+            if (isIncress == false && ticketCount > 0) {
+                ticketNewCount = ticketCount - 1;
             }
-            caseInput.value = caseNewCount;
+            ticketInput.value = ticketNewCount;
             calculateTotal()
         }
 
-        function calculateTotal(){
-            const firstTicketInput = document.getElementById("number-count-firstPart")
-            const firstTicketCount = parseInt(firstTicketInput.value);
+        function calculateTotal() {
+            // const firstTicketInput = document.getElementById("number-count-firstPart")
+            // const firstTicketCount = parseInt(firstTicketInput.value);
+            let firstTicketCount = getValueInput("firstPart");
+            let secendTicketCount = getValueInput("secendPart")
+            // const secendTicketInput = document.getElementById("number-count-secendPart");
+            // const secendTicketCount = parseInt(secendTicketInput.value);
 
-            const secendTicketInput = document.getElementById("number-count-secendPart");
-            const secendTicketCount = parseInt(secendTicketInput.value);
-   
 
             const totalPrice = firstTicketCount * 150 + secendTicketCount * 100;
             document.getElementById("totalPrice").innerText = '$' + totalPrice;
@@ -156,13 +161,23 @@
             document.getElementById("grandTotal").innerText = '$' + grandTotal;
         }
 
+
+        function getValueInput(id){
+            const ticketInput = document.getElementById("number-count-" + id);
+            const ticketCount = parseInt(ticketInput.value);
+            return ticketCount
+        }
+
+
+
+
         // book now button
 
         const bookNowBtn = document.getElementById("bookNowBtn");
-        bookNowBtn.addEventListener("click", function(){
-           
-                alert("yay, You have bought ticket sucssesfully")
-            })
+        bookNowBtn.addEventListener("click", function () {
+
+            alert("Thanks for buying the ticket")
+        })
 
 
 
