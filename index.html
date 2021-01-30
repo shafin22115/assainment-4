@@ -109,7 +109,7 @@
                     </div>
                 </div>
             </div>
-            <button class="btn-style">Book Now</button>
+            <button id="bookNowBtn" class="btn-style">Book Now</button>
         </div>
     </main>
 
@@ -155,6 +155,19 @@
             const grandTotal = totalPrice + tax;
             document.getElementById("grandTotal").innerText = '$' + grandTotal;
         }
+
+        // book now button
+
+        const bookNowBtn = document.getElementById("bookNowBtn");
+        bookNowBtn.addEventListener("click", function(){
+           
+                alert("yay, You have bought ticket sucssesfully")
+            })
+
+
+
+
+
 
         // function getInputValueFor(id){
         //  const ticketInput = document.getElementById("number-count-" + id)
