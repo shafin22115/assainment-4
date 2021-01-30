@@ -64,19 +64,19 @@
                 <div class="input-group f-class">
                 <div>
                     <label for="" id="first-ticket-price">First Class ($150)</label>
-                    <input  class="inp-style inp-width" type="number" name="" value="1">
+                    <input id="number-count-firstPart" class="inp-style inp-width" type="number" name="" value="0">
                 </div>
                 <div class="plus-minus-btn">
-                    <p><span >+</span> <span >-</span></p>
+                    <p><span onclick="forPlusMinus(true, '-firstPart')">+</span> <span onclick=" forPlusMinus(false, '-firstPart')">-</span></p>
                 </div>
             </div>
                 <div class="input-group f-class">
                     <div>
                         <label for="" id="secend-ticket-price">Economy ($100)</label>
-                        <input id="number-count" class="inp-style inp-width" type="number" name="" value="1">
+                        <input id="number-count-secendPart" class="inp-style inp-width" type="number" name="" value="0">
                     </div>
                     <div class="plus-minus-btn">
-                        <p> <span id="plus-count">+</span> <span id="minus-count">-</span> </p>  
+                        <p> <span onclick="forPlusMinus(true, '-secendPart' )">+</span> <span onclick=" forPlusMinus(false, '-secendPart')" >-</span> </p>  
                     </div>
                 </div>
 
@@ -120,25 +120,88 @@
 
 
         // secend ticket
-        const plusCountBtn =document.getElementById("plus-count");
-        plusCountBtn.addEventListener("click", function(){
-            const caseInput = document.getElementById("number-count");
-            const caseCount = parseInt(caseInput.value);
-            const newCount = caseCount + 1
-            caseInput.value = newCount;
-            // const totalPrice = newCount * 100;
-            // document.getElementById("secend-ticket-price").innerText = "Economy $" + totalPrice;
-        })
+        
 
-        const minusCountBtn = document.getElementById("minus-count");
-        minusCountBtn.addEventListener("click", function(){
-            const caseInput = document.getElementById("number-count");
+        // function section
+        function forPlusMinus(isIncress, part){
+            const caseInput = document.getElementById("number-count" + part );
             const caseCount = parseInt(caseInput.value);
-            const newCount = caseCount - 1;
-            caseInput.value = newCount;
-            // const totalPrice = newCount * 100;
-            // document.getElementById("secend-ticket-price").innerText = "Economy $" + totalPrice;
-        })
+            // const newCount = caseCount - 1;
+            let caseNewCount = caseCount;
+            if(isIncress == true){
+                caseNewCount = caseCount + 1;
+            }
+            if(isIncress == false && caseCount > 0){
+                caseNewCount = caseCount - 1;
+            }
+            caseInput.value = caseNewCount;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+        // function forPlusMinus(isIncress){
+        //     const caseInput = document.getElementById("number-count");
+        //     const caseCount = parseInt(caseInput.value);
+        //     // const newCount = caseCount - 1;
+        //     let caseNewCount = caseCount;
+        //     if(isIncress == true){
+        //         caseNewCount = caseCount + 1;
+        //     }
+        //     if(isIncress == false && caseCount > 0){
+        //         caseNewCount = caseCount - 1;
+        //     }
+        //     caseInput.value = caseNewCount;
+        // }
+
+        // function forPlusMinusFirst(isIncress){
+        //     const caseInput = document.getElementById("number-count-first");
+        //     const caseCount = parseInt(caseInput.value);
+        //     // const newCount = caseCount - 1;
+        //     let caseNewCount = caseCount;
+        //     if(isIncress == true){
+        //         caseNewCount = caseCount + 1;
+        //     }
+        //     if(isIncress == false && caseCount > 0){
+        //         caseNewCount = caseCount - 1;
+        //     }
+        //     caseInput.value = caseNewCount;
+        // }
+
+
+
+
+
+
+
+
+        // const plusCountBtn =document.getElementById("plus-count");
+        // plusCountBtn.addEventListener("click", function(){
+        //     const caseInput = document.getElementById("number-count");
+        //     const caseCount = parseInt(caseInput.value);
+        //     const newCount = caseCount + 1
+        //     caseInput.value = newCount;
+        //     // const totalPrice = newCount * 100;
+        //     // document.getElementById("secend-ticket-price").innerText = "Economy $" + totalPrice;
+        // })
+
+        // const minusCountBtn = document.getElementById("minus-count");
+        // minusCountBtn.addEventListener("click", function(){
+        //     const caseInput = document.getElementById("number-count");
+        //     const caseCount = parseInt(caseInput.value);
+        //     const newCount = caseCount - 1;
+        //     caseInput.value = newCount;
+        //     // const totalPrice = newCount * 100;
+        //     // document.getElementById("secend-ticket-price").innerText = "Economy $" + totalPrice;
+        // })
 
 
     </script>
